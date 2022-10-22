@@ -6,7 +6,7 @@
     $usuarioEstado 	 = $_REQUEST['usuarioEstado'];
     $usuarioRol 	 = $_REQUEST['usuarioRol'];
   
-    $sqlUser = "SELECT usuarioLogin,usuarioPassword FROM usuario WHERE usuarioLogin = '$usuarioLogin'";
+    $sqlUser = "SELECT usuarioLogin,usuarioPassword FROM medico WHERE usuarioLogin = '$usuarioLogin'";
     $result = mysqli_query($db,$sqlUser);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
@@ -16,7 +16,7 @@
         echo '<script> window.location="../web/pages/consultar_usuario.php"; </script>';
 
     }else{
-        $sql ="INSERT INTO usuario (usuarioLogin , usuarioPassword, usuarioEstado, usuarioRol )
+        $sql ="INSERT INTO medico (usuarioLogin , usuarioPassword, usuarioEstado, usuarioRol )
         values('" .$usuarioLogin. "', '" .$usuarioPassword. "','" .$usuarioEstado. "','" .$usuarioRol. "')";
    
    
