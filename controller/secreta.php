@@ -12,12 +12,11 @@ if (empty($_SESSION["usuario"])) {
     header("Location:  ../web/index.html");
     # Y salimos del script
     exit();
+} else {
+    header("Location:  ../web/index.html");
+    # Y salimos del script
+    exit();
 }
 
 # No hace falta un else, pues si el usuario no se loguea, todo lo de abajo no se ejecuta
 ?>
-<?php
-
-include("../web/index.html");
-?>
-<!-- Y aprovechando, le indicamos al usuario un enlace para salir-->
