@@ -106,49 +106,55 @@
                                             <div class="row">
                                                 <div> <img src="..//img/logotipo_consulta_mas.JPG"></div>
                                                 <div class="card-body p-4">
+
                                                     <h3> REGISTRAR MEDICO</h3>
-                                                    <form role="form">
+                                                    <form action="../../controller/registrarMedico.php" method="POST">
                                                         <div class="form-group">
-                                                            <label for="InputDocument">Documento de Identidad</label>
-                                                            <input required type="number" class="form-control" id="" placeholder="Numero Documento">
+                                                            <label for="inputmedicoIdentificacion">Documento de Identidad</label>
+                                                            <input required type="number" class="form-control" id="" name="medicoIdentificacion" placeholder="Numero de Identificación" value="" maxlength="15">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="">Nombres</label>
-                                                            <input required type="text" class="form-control" id="" placeholder="Nombres">
+                                                            <input required type="text" class="form-control" id="" name="medicoNombres" value="" placeholder="Nombres" maxlength="50">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="">Apellidos</label>
-                                                            <input required type="text" class="form-control" id="" placeholder="Apellidos">
+                                                            <input required type="text" class="form-control" id="" name="medicoApellidos" value="" placeholder="Apellidos" maxlength="50">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="">Fecha de Nacimiento</label>
-                                                            <input type="date" class="form-control" id="" placeholder="">
+                                                            <label for="">Especialidad</label>
+                                                            <input required type="text" class="form-control" id="" name="medicoEspecialidad" value="" placeholder="Especialidad" maxlength="50">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="">Sexo</label>
-                                                            <select name="color" id="color" class="form-control">
-                                                                <option value="M">Masculino</option>
-                                                                <option value="F">Femenino</option>
-                                                            </select>
+                                                            <label for="">Telefono</label>
+                                                            <input type="number" class="form-control" id="" name="medicoTelefono" value="" placeholder="Telefono" minlength="7" maxlength="15">
                                                         </div>
-                                                        </ul>
+                                                        <div class="form-group">
+                                                            <label for="">Correo electrónico</label>
+                                                            <input type="email" class="form-control" id="" name="medicoCorreo" value="" placeholder="e-Mail" maxlength="50">
+                                                        </div>
+                                                        <button class="btn btn-primary btn-user btn-block " type="submit" name="accion">Guardar</button>
+                                                    </form>
                                                 </div>
-                                                <button class="btn btn-primary btn-user btn-block " type="submit" name="accion">Guardar</button>
-                                                </form>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
+        <script type="text/javascript">
+            function confirmation() {
+                if (alert("Medico creado Exitosamente")) {
+                    return true;
+                }
+                return false;
+            }
+        </script>
 
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -157,7 +163,7 @@
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
+        <!-- Custom scripts para todas las paginas-->
         <script src="../js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->

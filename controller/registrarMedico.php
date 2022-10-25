@@ -1,26 +1,29 @@
 <?php
     include('config.php');
    
-    $usuarioLogin      =$_POST['usuarioLogin'];
-    $usuarioPassword 	 = $_REQUEST['usuarioPassword'];
-    $usuarioEstado 	 = $_REQUEST['usuarioEstado'];
-    $usuarioRol 	 = $_REQUEST['usuarioRol'];
-  
-    $sqlUser = "SELECT usuarioLogin,usuarioPassword FROM medico WHERE usuarioLogin = '$usuarioLogin'";
-    $result = mysqli_query($db,$sqlUser);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $medicoIdentificacion      =$_POST['medicoIdentificacion'];
+    $medicoNombres 	 = $_REQUEST['medicoNombres'];
+    $medicoApellidos	 = $_REQUEST['medicoApellidos'];
+    $medicoEspecialidad 	 = $_REQUEST['medicoEspecialidad'];
+    $medicoTelefono    =   $_REQUEST ['medicoTelefono'];
+    $medicoCorreo  = $_REQUEST ['medicoCorreo'];
 
-    $count = mysqli_num_rows($result);
+  
+    $sql = "SELECT medicoIdentificacion FROM medico WHERE medicoIdentificacion = '$medicoIdentificacion'";
+    $resultadoMedico = mysqli_query($db,$sql);
+    $row = mysqli_fetch_array($resultadoMedico,MYSQLI_ASSOC);
+
+    $count = mysqli_num_rows($resultadoMedico);
     if($count > 0) {
-        echo "<script>alert('ESTE USUARIO YA EXISTE EN LA BASE DE DATOS');</script>";
-        echo '<script> window.location="../web/pages/consultar_usuario.php"; </script>';
+        echo "<script>alert('ESTE MEDICO YA SE ENCUENTRA REGISTRADO EN LA BASE DE DATOS');</script>";
+        echo '<script> window.location="../web/pages/consultar_Medico.php"; </script>';
 
     }else{
-        $sql ="INSERT INTO medico (usuarioLogin , usuarioPassword, usuarioEstado, usuarioRol )
-        values('" .$usuarioLogin. "', '" .$usuarioPassword. "','" .$usuarioEstado. "','" .$usuarioRol. "')";
+        $sql ="INSERT INTO medico (medicoIdentificacion, medicoNombres, medicoApellidos, medicoEspecialidad, medicoTelefono, medicoCorreo  )
+        values('".$medicoIdentificacion."','".$medicoNombres."','".$medicoApellidos."', '" .$medicoEspecialidad. "','".$medicoTelefono."','".$medicoCorreo."') ";
    
    
        $query=mysqli_query($db, $sql);
-       echo "<script>alert('USUARIO CREADO EXITOSAMENTE');</script>";
-       echo '<script> window.location="../web/pages/consultar_usuario.php"; </script>';
+       echo "<script>alert('MEDICO CREADO EXITOSAMENTE');</script>";
+       echo '<script> window.location="../web/pages/consultar_Medico.php"; </script>';
     }
