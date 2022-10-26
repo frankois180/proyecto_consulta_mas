@@ -6,16 +6,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 $palabra_secreta = $_POST["palabra_secreta"];
 
 
-    $sql = "SELECT usuarioLogin,usuarioPassword FROM usuario WHERE usuarioLogin = '$usuario' and usuarioPassword = '$palabra_secreta'";
+    $sql = "SELECT usuarioLogin,usuarioPassword,usuarioEstado FROM usuario WHERE usuarioLogin = '$usuario' and usuarioPassword = '$palabra_secreta'";
     $result = mysqli_query($db,$sql);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
     $count = mysqli_num_rows($result);
     $usuario_correcto = "";
     $palabra_secreta_correcta = "";
+    $usuario_estado = "";
     if($count == 1) {
     $usuario_correcto = $row['usuarioLogin'];
     $palabra_secreta_correcta = $row['usuarioPassword'];
+    $usuario_estado = $row['usuarioEstado'];
     }
 /*
 Para leer los datos que fueron enviados al formulario,
@@ -27,7 +29,7 @@ clave es el "name" que le dimos al input
 
 
 # Luego de haber obtenido los valores, ya podemos comprobar:
-if ($usuario === $usuario_correcto && $palabra_secreta === $palabra_secreta_correcta) {
+if ($usuario === $usuario_correcto && $palabra_secreta === $palabra_secreta_correcta && $usuario_estado=="Activo") {
     # Significa que coinciden, así que vamos a guardar algo
     # en el arreglo superglobal $_SESSION, ya que ese arreglo
     # "persiste" a través de todas las páginas
@@ -44,6 +46,6 @@ if ($usuario === $usuario_correcto && $palabra_secreta === $palabra_secreta_corr
 } else {
     # No coinciden, así que simplemente imprimimos un
     # mensaje diciendo que es incorrecto
-    echo "El usuario o la contraseña son incorrectos";
+    echo "USUARIO O CONTRASEÑA INCORRECTOS";
 }
 }
