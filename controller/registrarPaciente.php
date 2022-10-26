@@ -1,7 +1,7 @@
 <?php
     include('config.php');
    
-    $pacienteIdentificacion      =$_POST['pacienteIdentificacion '];
+    $pacienteIdentificacion  =$_REQUEST['pacienteIdentificacion'];
     $pacienteNombres      =$_REQUEST['pacienteNombres'];
     $pacienteApellidos     =$_REQUEST['pacienteApellidos'];
     $pacienteFechaNacimiento    =$_REQUEST['pacienteFechaNacimiento'];
