@@ -146,9 +146,7 @@
 
                                                                 </select>
                                                             </div>
-
-
-
+                                                            
                                                             <div class="form-group">
                                                                 <label for="">Estado</label>
                                                                 <select name="usuarioEstado" id="color" class="form-control">
@@ -164,12 +162,6 @@
                                                         </form>
                                                     </form>
                                                 </div>
-                                                
-
-
-
-                                                   
-
                                             </div>
                                         </div>
                                     </div>
