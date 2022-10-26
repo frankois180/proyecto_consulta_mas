@@ -8,4 +8,4 @@ session_start();
 session_destroy();
 
 # Finalmente lo redireccionamos al formulario
-header("Location: ../web/pages/login_consulta_mas.html");
+header("Location: ../web/Inicio.html");
