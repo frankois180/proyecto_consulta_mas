@@ -12,7 +12,7 @@
 
                     <div class="form-group">
                         <label for="ImputUsuario">Identificacion</label>
-                        <input name="pacienteIdentificacion" type="number" class="form-control" id="" placeholder="Identificacion" value="<?php echo $registro->pacienteIdentificacion ?>"maxlength="15">
+                        <input name="pacienteIdentificacion" type="number" class="form-control" id="" placeholder="Identificacion" value="<?php echo $registro->pacienteIdentificacion ?>" maxlength="15">
                     </div>
                     <div class="form-group">
                         <label for="">Nombres</label>
@@ -30,22 +30,22 @@
                     <div class="form-group">
                         <label for="">Sexo</label>
                         <select name="pacienteSexo" id="pacienteSexo" class="form-control">
-                        <option value="Masculino">Masculino</option>
-                        <option value="Femenino">Femenino</option>
-                    </select>
-
-                    
-
-
+                            <option value="Femenino" <?php if ($registro->pacienteSexo == 'Femenino') {
+                                                            echo ("selected");
+                                                        } ?>>Femenino</option>
+                            <option value="Masculino" <?php if ($registro->pacienteSexo == 'Masculino') {
+                                                            echo ("selected");
+                                                        } ?>>Masculino</option>
+                        </select>
                     </div>
                     </ul>
-            
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
             </div>
-                 </form>
-            </div>            
         </div>
 
     </div>
