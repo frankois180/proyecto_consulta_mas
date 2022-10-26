@@ -65,7 +65,7 @@
             </li>
             <!-- Nav Item -    MEDICO -->
             <li class="nav-item">
-                <a class="nav-link" href="consultar_Medico.PHP">
+                <a class="nav-link" href="consultar_Medico.php">
                     <span>MEDICO</span></a>
             </li>
             </li>
