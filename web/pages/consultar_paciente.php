@@ -120,12 +120,12 @@
                                 </button>
                             </div>
                             <div style="float: left; margin-left:100px;">
-                            <button type="button" class="btn btn-primary"  onclick="window.location.href='../pages/formulario_paciente.php'">
-                                CREAR
-                            </button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='../pages/formulario_paciente.php'">
+                                    CREAR
+                                </button>
+                            </div>
                         </div>
-                        </div>
-                    
+
                     </form>
 
                 </nav>
@@ -148,12 +148,12 @@
 
                                 <?php
 
-                                require "../../controller/pacienteController.php";
-                             
+                                require_once "../../controller/pacienteController.php";
+
                                 if (isset($_POST['paciente'])) {
                                     $objUsuario = new pacienteController();
                                     $resultado = $objUsuario->consultarPaciente($_POST['paciente']);
-                                   
+
                                     if (isset($resultado)) {
                                         if ($resultado->num_rows > 0) {
 

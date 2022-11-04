@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Consulta Mas - Usuario </title>
+    <title>Consulta Mas - Medico </title>
 
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../css/all.min.css" rel="stylesheet" type="text/css">
@@ -46,7 +46,7 @@
 
             <!-- Nav Item - CITAS -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="consultar_cita.php">
                     <span>PROGRAMACION DE CITAS</span></a>
             </li>
 
@@ -86,7 +86,7 @@
             <!-- Heading -->
             <div class="sidebar-heading">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../php/logout.php">
+                    <a class="nav-link" href="../controller/logout.php">
                         <span>CERRAR SESION</span></a>
                 </li>
             </div>
