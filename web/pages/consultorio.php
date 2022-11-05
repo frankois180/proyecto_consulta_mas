@@ -46,7 +46,7 @@
 
             <!-- Nav Item - CITAS -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="consultar_cita.php">
                     <span>PROGRAMACION DE CITAS</span></a>
             </li>
 
