@@ -47,7 +47,7 @@
             <!-- Nav Item - CITAS -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-                    <span>PROGRAMACION DE CITAS</span></a>
+                    <span>CITAS</span></a>
             </li>
 
             <!-- Divider -->

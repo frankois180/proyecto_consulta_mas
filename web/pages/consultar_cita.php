@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Consulta Ma </title>
+    <title>Consulta Mas - Citas </title>
 
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,7 +48,7 @@
             <!-- Nav Item - CITAS -->
             <li class="nav-item active">
                 <a class="nav-link" href="#">
-                    <span>PROGRAMACION DE CITAS</span></a>
+                    <span>CITAS</span></a>
             </li>
 
             <!-- Divider -->
@@ -62,7 +62,7 @@
             <!-- Nav Item - CONSULTORIO -->
             <li class="nav-item">
                 <a class="nav-link" href="consultorio.php">
-                    <span>CONSDSBFKJDSBFKJDKFBKDSJ</span></a>
+                    <span>CONSULTORIO</span></a>
             </li>
             <!-- Nav Item -    MEDICO -->
             <li class="nav-item">
