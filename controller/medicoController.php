@@ -15,4 +15,16 @@ class medicoController
 
         return $result;
     }
+
+    public function listarMedicos()
+	{
+	
+        include_once("config.php");
+        $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+        $sql = "select * from medico ";
+        $result = mysqli_query($db, $sql);
+
+        return $result;
+	
+	}
 }
