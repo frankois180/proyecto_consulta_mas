@@ -120,7 +120,7 @@
                                 </button>
                             </div>
                             <div style="float: left; margin-left:100px;">
-                                <button type="button" class="btn btn-primary" onclick="window.location.href='../pages/formulario_medico.php'">
+                                <button type="button" class="btn btn-dark" onclick="window.location.href='../pages/formulario_medico.php'">
                                     CREAR
                                 </button>
                             </div>
@@ -183,7 +183,7 @@
                                                         <td>
                                                             <form action="../../controller/deleteMedico.php" method="POST" onsubmit="return confirmation()">
                                                                 <input type="hidden" name="idmedico" value="<?php echo $registroMedico->idmedico ?>">
-                                                                <button type="submit" class="btn btn-danger">Eliminar</button> 
+                                                                <button type="submit" class="btn btn-danger">Cancelar</button> 
                                                                 <!-- Button trigger modal -->
                                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $registroMedico->idmedico ?>">
                                                                     Editar
