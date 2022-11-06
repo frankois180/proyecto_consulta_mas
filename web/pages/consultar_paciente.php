@@ -46,8 +46,8 @@
 
             <!-- Nav Item - CITAS -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <span>PROGRAMACION DE CITAS</span></a>
+                <a class="nav-link" href="consultar_cita.php">
+                    <span>CITAS</span></a>
             </li>
 
             <!-- Divider -->
@@ -120,7 +120,7 @@
                                 </button>
                             </div>
                             <div style="float: left; margin-left:100px;">
-                                <button type="button" class="btn btn-primary" onclick="window.location.href='../pages/formulario_paciente.php'">
+                                <button type="button" class="btn btn-dark" onclick="window.location.href='../pages/formulario_paciente.php'">
                                     CREAR
                                 </button>
                             </div>

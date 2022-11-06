@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Consulta Mas - Usuario </title>
+    <title>Consulta Mas - Citas </title>
 
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,6 +25,7 @@
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
+
 
 <body id="page-top">
 
@@ -46,7 +47,7 @@
 
             <!-- Nav Item - CITAS -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="#">
                     <span>CITAS</span></a>
             </li>
 
@@ -71,7 +72,7 @@
             </li>
             <!-- Nav Item -   USUARIO -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="consultar_usuario.php">
                     <span>USUARIO</span></a>
             </li>
 
@@ -86,7 +87,7 @@
             <!-- Heading -->
             <div class="sidebar-heading">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../php/logout.php">
+                    <a class="nav-link" href="../../controller/logout.php">
                         <span>CERRAR SESION</span></a>
                 </li>
             </div>
@@ -101,7 +102,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="height: auto">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <form class="form-inline">
@@ -113,21 +114,110 @@
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="POST">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" name="usuario" placeholder="Buscar Usuario..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                            <div style="float: left; margin-left:100px;">
-                            <button type="button" class="btn btn-dark"  onclick="window.location.href='../pages/formulario_usuario.php'">
-                                CREAR
-                            </button>
-                        </div>
-                        </div>
-                    
-                    </form>
 
+                                <h5>Fecha inicio &nbsp;&nbsp;</h5>
+
+                            </div>
+                            <input required type="date" class="form-control" list="browsers" name="fechaInicio" id="browser">
+
+                        </div>
+                        <br>
+
+                        <div class="input-group">
+                            <div class="input-group-append">
+
+                                <h5>Fecha Fin &nbsp; &nbsp; &nbsp;</h5>
+
+                            </div>
+                            <input required type="date" class="form-control" list="browsers" name="fechaFin" id="browser">
+
+                        </div>
+
+                        <br>
+                        <div class="input-group">
+                            <div class="input-group-append">
+
+                                <h5>Medico &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</h5>
+
+                            </div>
+                            <input class="form-control" list="medicos" name="medico" id="medicox">
+                            <div class="input-group-append">
+
+                                <datalist id="medicos">
+                                    <?php
+                                    require_once "../../controller/medicoController.php";
+
+                                    $objMedico = new medicoController();
+                                    $resultadoMedico = $objMedico->listarMedicos();
+                                    if (isset($resultadoMedico)) {
+                                        if ($resultadoMedico->num_rows > 0) {
+
+                                    ?>
+                                            <?php
+                                            while ($registroMedico = $resultadoMedico->fetch_object()) {
+                                            ?>
+                                                <option label="<?php echo ($registroMedico->medicoNombres . ' '  . $registroMedico->medicoApellidos); ?>" value="<?php echo ($registroMedico->medicoIdentificacion); ?>"></option>
+                                    <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </datalist>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <div class="input-group-append">
+
+                                <h5>Paciente&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</h5>
+
+                            </div>
+                            <input class="form-control" list="pacientes" name="paciente" id="paciente">
+                            <div class="input-group-append">
+
+                                <datalist id="pacientes">
+                                    <?php
+                                    require_once "../../controller/pacienteController.php";
+
+                                    $objPaciente = new pacienteController();
+                                    $resultadoPaciente = $objPaciente->listarPacientes();
+                                    if (isset($resultadoPaciente)) {
+                                        if ($resultadoPaciente->num_rows > 0) {
+
+                                    ?>
+                                            <?php
+                                            while ($registroMedico = $resultadoPaciente->fetch_object()) {
+                                            ?>
+                                                <option label="<?php echo ($registroMedico->pacienteNombres); ?>" value="<?php echo ($registroMedico->pacienteIdentificacion); ?>"></option>
+                                    <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </datalist>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="">Estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <select name="citaEstado" id="color" class="form-control">
+                                <option value="Asignado">Asignado</option>
+                                <option value="Atendido">Atendido</option>
+                                <option value="Cancelado">Cancelado</option>
+                            </select>
+
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">
+                            BUSCAR
+                        </button>            
+                        
+                                <button type="button" class="btn btn-dark" onclick="window.location.href='../pages/formulario_cita.php'">
+                                    NUEVA CITA
+                                </button>
+                            
+                    </form>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -135,7 +225,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">USUARIO</h1>
+                    <h1 class="h3 mb-2 text-gray-800">CITA</h1>
 
 
                     <!-- DataTales Example -->
@@ -148,12 +238,23 @@
 
                                 <?php
 
-                                require "../../controller/usuarioController.php";
-                             
-                                if (isset($_POST['usuario'])) {
-                                    $objUsuario = new UsuarioController();
-                                    $resultado = $objUsuario->consultarUsuario($_POST['usuario']);
-                                   
+                                require "../../controller/citaController.php";
+                                if (isset($_POST['fechaInicio'])) {
+
+                                    $medicoSeleccionado = $_POST['medico'];
+                                    $pacienteSeleccionado =  $_POST['paciente'];
+                                    $fechaInicio = $_POST['fechaInicio'];
+                                    $fechaFin = $_POST['fechaFin'];
+                                    $condicionEstado = $_POST['citaEstado'];
+                                    /*
+                                    echo ('fechaInicio' .$fechaInicio);
+                                    echo ('fechaFin' .$fechaFin);
+                                    echo ('medicoSeleccionado' .$medicoSeleccionado);
+                                    echo ('paciente' .$pacienteSeleccionado);
+*/
+                                    $objUsuario = new citaController();
+                                    $resultado = $objUsuario->listarCita($pacienteSeleccionado, $medicoSeleccionado, $fechaInicio, $fechaFin, $condicionEstado);
+
                                     if (isset($resultado)) {
                                         if ($resultado->num_rows > 0) {
 
@@ -161,9 +262,12 @@
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Usuario</th>
+                                                        <th>Fecha</th>
+                                                        <th>Hora </th>
+                                                        <th>Medico</th>
+                                                        <th>Paciente</th>
+                                                        <th>Consultorio</th>
                                                         <th>Estado</th>
-                                                        <th>Rol</th>
                                                         <th>Acciones</th>
                                                     </tr>
                                                 </thead>
@@ -172,16 +276,21 @@
                                                 while ($registro = $resultado->fetch_object()) {
                                                 ?>
                                                     <tr>
-                                                        <td><?php echo $registro->usuarioLogin ?></td>
-                                                        <td><?php echo $registro->usuarioEstado ?></td>
-                                                        <td><?php echo $registro->rolNombre ?></td>
+                                                        <td><?php echo $registro->citaFecha ?></td>
+                                                        <td><?php echo $registro->citahora ?></td>
+                                                        <td><?php echo $registro->medicoNombres . " " . $registro->medicoApellidos ?></td>
+                                                        <td><?php echo $registro->pacienteNombres . " " . $registro->pacienteApellidos ?></td>
+                                                        <td><?php echo $registro->consultorioNombre ?></td>
+                                                        <td><?php echo $registro->citaEstado ?></td>
 
                                                         <td>
-                                                            <form action="../../controller/deleteUser.php" method="POST" onsubmit="return confirmation()">
-                                                                <input type="hidden" name="idUsuario" value="<?php echo $registro->idUsuario ?>">
-                                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                            <form action="../../controller/cancelarCita.php" method="POST" onsubmit="return confirmation()">
+                                                                <input type="hidden" name="citaObservaciones" value="<?php echo $registro->citaObservaciones ?>">
+                                                                <input type="hidden" name="idcita" value="<?php echo $registro->idcita ?>">
+                                                                <button type="submit" class="btn btn-danger">Cancelar</button>
                                                                 <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $registro->idUsuario ?>">
+
+                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $registro->idcita ?>">
                                                                     Editar
                                                                 </button>
                                                             </form>
@@ -190,13 +299,13 @@
                                                     </tr>
 
                                                     <!--Ventana Modal para Actualizar--->
-                                                    <?php include('editarUsuarioModal.php'); ?>
+                                                    <?php include('editarCitaModal.php'); ?>
                                                 <?php
                                                 }  //cerrando el ciclo while
                                                 ?>
                                     <?php
                                         } else {
-                                            echo '<div class="alert alert-danger text-center">El Usuario No existe en la base de datos</div>';
+                                            echo '<div class="alert alert-danger text-center">NO EXISTEN CITAS CON LOS PARAMETROS INGRESADOS</div>';
                                         }
                                     }
                                 }
@@ -292,7 +401,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function confirmation() {
-            if (confirm("Realmente desea eliminar?")) {
+            if (confirm("¿Realmente desea cancelar esta cita?")) {
                 return true;
             }
             return false;
