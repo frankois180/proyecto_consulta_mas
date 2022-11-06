@@ -102,7 +102,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="height: 50%">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="height: auto">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <form class="form-inline">
@@ -199,11 +199,20 @@
                             </div>
                         </div>
                         <br>
+                        <div class="form-group">
+                            <label for="">Estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <select name="citaEstado" id="color" class="form-control">
+                                <option value="Asignado">Asignado</option>
+                                <option value="Atendido">Atendido</option>
+                                <option value="Cancelado">Cancelado</option>
+                            </select>
+
+                        </div>
+                        <br>
                         <button type="submit" class="btn btn-primary">
-                            Buscar
+                            BUSCAR
                         </button>
                     </form>
-
                 </nav>
                 <!-- End of Topbar -->
 
@@ -231,6 +240,7 @@
                                     $pacienteSeleccionado =  $_POST['paciente'];
                                     $fechaInicio = $_POST['fechaInicio'];
                                     $fechaFin = $_POST['fechaFin'];
+                                    $condicionEstado = $_POST['citaEstado'];
                                     /*
                                     echo ('fechaInicio' .$fechaInicio);
                                     echo ('fechaFin' .$fechaFin);
@@ -238,7 +248,7 @@
                                     echo ('paciente' .$pacienteSeleccionado);
 */
                                     $objUsuario = new citaController();
-                                    $resultado = $objUsuario->listarCita($pacienteSeleccionado, $medicoSeleccionado, $fechaInicio, $fechaFin);
+                                    $resultado = $objUsuario->listarCita($pacienteSeleccionado, $medicoSeleccionado, $fechaInicio, $fechaFin, $condicionEstado);
 
                                     if (isset($resultado)) {
                                         if ($resultado->num_rows > 0) {
@@ -253,7 +263,6 @@
                                                         <th>Paciente</th>
                                                         <th>Consultorio</th>
                                                         <th>Estado</th>
-                                                        <th>Observaciones</th>
                                                         <th>Acciones</th>
                                                     </tr>
                                                 </thead>
@@ -268,13 +277,15 @@
                                                         <td><?php echo $registro->pacienteNombres . " " . $registro->pacienteApellidos ?></td>
                                                         <td><?php echo $registro->consultorioNombre ?></td>
                                                         <td><?php echo $registro->citaEstado ?></td>
-                                                        <td><?php echo $registro->citaObservaciones ?></td>
+
                                                         <td>
-                                                            <form action="../../controller/" method="POST" onsubmit="return confirmation()">
-                                                                <input type="hidden" name="idpaciente" value="<?php echo $registro->idpaciente ?>">
-                                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                            <form action="../../controller/cancelarCita.php" method="POST" onsubmit="return confirmation()">
+                                                                <input type="hidden" name="citaObservaciones" value="<?php echo $registro->citaObservaciones ?>">
+                                                                <input type="hidden" name="idcita" value="<?php echo $registro->idcita ?>">
+                                                                <button type="submit" class="btn btn-danger">Cancelar</button>
                                                                 <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $registro->idpaciente ?>">
+
+                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $registro->idcita ?>">
                                                                     Editar
                                                                 </button>
                                                             </form>
@@ -385,7 +396,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function confirmation() {
-            if (confirm("Realmente desea eliminar?")) {
+            if (confirm("¿Realmente desea cancelar esta cita?")) {
                 return true;
             }
             return false;

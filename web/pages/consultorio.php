@@ -120,7 +120,7 @@
                                 </button>
                             </div>
                             <div style="float: left; margin-left:100px;">
-                                <button type="button" class="btn btn-primary" onclick="window.location.href='crear_consultorio.php'">
+                                <button type="button" class="btn btn-dark" onclick="window.location.href='crear_consultorio.php'">
                                     CREAR
                                 </button>
                             </div>
