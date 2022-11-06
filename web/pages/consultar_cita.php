@@ -48,7 +48,7 @@
             <!-- Nav Item - CITAS -->
             <li class="nav-item active">
                 <a class="nav-link" href="#">
-                    <span>PROGRAMACION DE CITAS</span></a>
+                    <span>CITAS</span></a>
             </li>
 
             <!-- Divider -->
@@ -62,7 +62,7 @@
             <!-- Nav Item - CONSULTORIO -->
             <li class="nav-item">
                 <a class="nav-link" href="consultorio.php">
-                    <span>CONSDSBFKJDSBFKJDKFBKDSJ</span></a>
+                    <span>CONSULTORIO</span></a>
             </li>
             <!-- Nav Item -    MEDICO -->
             <li class="nav-item">
@@ -202,8 +202,10 @@
                         <button type="submit" class="btn btn-primary">
                             Buscar
                         </button>
+                                              
                     </form>
-
+                    
+                    
                 </nav>
                 <!-- End of Topbar -->
 
