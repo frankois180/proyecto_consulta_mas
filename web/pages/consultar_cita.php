@@ -211,7 +211,12 @@
                         <br>
                         <button type="submit" class="btn btn-primary">
                             BUSCAR
-                        </button>
+                        </button>            
+                        
+                                <button type="button" class="btn btn-dark" onclick="window.location.href='../pages/formulario_cita.php'">
+                                    NUEVA CITA
+                                </button>
+                            
                     </form>
                 </nav>
                 <!-- End of Topbar -->
