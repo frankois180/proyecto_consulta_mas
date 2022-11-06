@@ -110,16 +110,17 @@
                                                 <div class="card-body p-4">
 
                                                     <h3> REGISTRAR CITA</h3>
+                                                    <form action="../../controller/registrarCita.php" method="POST">
                                                     
                                                         <form role="form">
                                                             <div class="form-group">
                                                                 <label for="InputFecha">Fecha</label>
-                                                                <input type="date" class="form-control" id="" placeholder="Fecha" name="Fecha" value="" required>
+                                                                <input type="date" class="form-control" id="idFecha" placeholder="Fecha" name="citaFecha" value="" required>
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <label for="">Hora</label>
-                                                                <input type="time" class="form-control" id="" placeholder="Hora" name="Hora" required>
+                                                                <input type="time" class="form-control" id="idHora" placeholder="Hora" name="citaHora" required>
                                                             </div>
                                                          
                                                            
@@ -128,7 +129,7 @@
                                                                 <h6>Paciente&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</h6>
 
                                                             </div>
-                                                            <input class="form-control" list="pacientes" name="paciente" id="paciente">
+                                                            <input class="form-control" list="pacientes" name="citaPaciente" id="paciente">
                                                             <div class="input-group-append">
 
                                                                 <datalist id="pacientes">
@@ -158,7 +159,7 @@
                                                                 <h6>Medico &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</h6>
 
                                                             </div>
-                                                            <input class="form-control" list="medicos" name="medico" id="medicox">
+                                                            <input class="form-control" list="medicos" name="citaMedico" id="medicox">
                                                             <div class="input-group-append">
 
                                                                 <datalist id="medicos">
@@ -184,41 +185,20 @@
                                                                 
                                                             
                                                             </div>
-
-                                                            <div class="input-group-append">
-
-                                                            <h6>Consultorio &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</h6>
-
+                                                              
+                                                            <div class="form-group">
+                                                                <label for="">Consultorio</label>
+                                                                <select name="citaConsultorio" id="citaEstado" class="form-control">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    
+                                                                </select>
                                                             </div>
-                                                            <input class="form-control" list="consultorio" name="consultorio" id="consultorio">
-                                                            <div class="input-group-append">
-
-                                                            <datalist id="consultorio">
-                                                                <?php
-                                                                require_once "../../controller/consultorioController.php";
-
-                                                                $objConsultorio = new consultorioController();
-                                                                $resultadoConsultorio = $objConsultorio->listarConsultorio();
-                                                                if (isset($resultadoConsultorio)) {
-                                                                    if ($resultadoConsultorio->num_rows > 0) {
-
-                                                                ?>
-                                                                        <?php
-                                                                        while ($registroConsultorio = $resultadoConsultorio->fetch_object()) {
-                                                                        ?>
-                                                                            label="<?php echo ($registroConsultorio->consultorioNombre); ?>" value="<?php echo ($registroConsultorio->idconsultorio); ?>
-                                                                <?php
-                                                                        }
-                                                                    }
-                                                                }
-                                                                ?>
-                                                            </datalist>
-
-                                                           </div>
 
                                                             <div class="form-group">
                                                                 <label for="">Estado</label>
-                                                                <select name="citaEstado" id="color" class="form-control">
+                                                                <select name="citaEstado" id="citaEstado" class="form-control">
                                                                     <option value="Asignado">Asignado</option>
                                                                     
                                                                 </select>
@@ -226,7 +206,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="">Observaciones</label>
-                                                                <input type="text" class="form-control" id="" placeholder="" name="observaciones">
+                                                                <input type="text" class="form-control" id="citaObservaciones" placeholder="" name="citaObservaciones">
                                                             </div>
                                                                     
 
