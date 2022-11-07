@@ -86,7 +86,7 @@
             <!-- Heading -->
             <div class="sidebar-heading">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../controller/logout.php">
+                    <a class="nav-link" href="../../controller/logout.php">
                         <span>CERRAR SESION</span></a>
                 </li>
             </div>
@@ -183,7 +183,7 @@
                                                         <td>
                                                             <form action="../../controller/deleteMedico.php" method="POST" onsubmit="return confirmation()">
                                                                 <input type="hidden" name="idmedico" value="<?php echo $registroMedico->idmedico ?>">
-                                                                <button type="submit" class="btn btn-danger">Cancelar</button> 
+                                                                <button type="submit" class="btn btn-danger">Eliminar</button> 
                                                                 <!-- Button trigger modal -->
                                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $registroMedico->idmedico ?>">
                                                                     Editar
