@@ -86,7 +86,7 @@
             <!-- Heading -->
             <div class="sidebar-heading">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../php/logout.php">
+                    <a class="nav-link" href="../../controller/logout.php">
                         <span>CERRAR SESION</span></a>
                 </li>
             </div>

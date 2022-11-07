@@ -129,7 +129,7 @@
                                                                 <h6>Paciente&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</h6>
 
                                                             </div>
-                                                            <input class="form-control" list="pacientes" name="citaPaciente" id="paciente">
+                                                            <input class="form-control" list="pacientes" name="citaPaciente" id="paciente" required>
                                                             <div class="input-group-append">
 
                                                                 <datalist id="pacientes">
@@ -159,7 +159,7 @@
                                                                 <h6>Medico &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</h6>
 
                                                             </div>
-                                                            <input class="form-control" list="medicos" name="citaMedico" id="medicox">
+                                                            <input class="form-control" list="medicos" name="citaMedico" id="medicox" required>
                                                             <div class="input-group-append">
 
                                                                 <datalist id="medicos">
@@ -188,7 +188,7 @@
                                                               
                                                             <div class="form-group">
                                                                 <label for="">Consultorio</label>
-                                                                <select name="citaConsultorio" id="citaEstado" class="form-control">
+                                                                <select name="citaConsultorio" id="citaEstado" class="form-control" required>
                                                                     <option value="1">1</option>
                                                                     <option value="2">2</option>
                                                                     <option value="3">3</option>
